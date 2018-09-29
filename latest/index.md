@@ -25,14 +25,16 @@ To cite Turing, please refer to the following paper. A sample BiBTeX entry entry
 
 
 ```
+{% raw %}
 @InProceedings{turing17,
-  title = {{T}uring: a language for flexible probabilistic inference},
-  author = {Ge, Hong and Xu, Kai and Ghahramani, Zoubin},
-  booktitle = {Proceedings of the 21th International Conference on Artificial Intelligence and Statistics},
-  year = {2018},
-  series = {Proceedings of Machine Learning Research},
-  publisher = {PMLR},
+  title = 	 {{T}uring: a language for flexible probabilistic inference},
+  author = 	 {Ge, Hong and Xu, Kai and Ghahramani, Zoubin},
+  booktitle = 	 {Proceedings of the 21th International Conference on Artificial Intelligence and Statistics},
+  year = 	 {2018},
+  series = 	 {Proceedings of Machine Learning Research},
+  publisher = 	 {PMLR},
 }
+{% endraw %}
 ```
 
 
