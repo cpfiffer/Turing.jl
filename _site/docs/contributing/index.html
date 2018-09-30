@@ -9,19 +9,19 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Documentation - Turing.jl</title>
-<meta name="description" content="Turing is a universal probabilistic programming language with an intuitive modelling interface, composable probabilistic inference and computational scalability.">
+<!-- begin _includes/seo.html --><title>Contributing - Turing.jl</title>
+<meta name="description" content="Turing is an open source project. If you feel that you have some relevant skills and are interested in contributing, then please do get in touch. You can contribute by opening issues on GitHub or implementing things yourself and making a pull request. We would also appreciate example models written using Turing.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Turing.jl">
-<meta property="og:title" content="Documentation">
-<meta property="og:url" content="http://localhost:4000/Turing.jl/docs/">
+<meta property="og:title" content="Contributing">
+<meta property="og:url" content="http://localhost:4000/Turing.jl/docs/contributing/">
 
 
-  <meta property="og:description" content="Turing is a universal probabilistic programming language with an intuitive modelling interface, composable probabilistic inference and computational scalability.">
+  <meta property="og:description" content="Turing is an open source project. If you feel that you have some relevant skills and are interested in contributing, then please do get in touch. You can contribute by opening issues on GitHub or implementing things yourself and making a pull request. We would also appreciate example models written using Turing.">
 
 
 
@@ -36,7 +36,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/Turing.jl/docs/">
+<link rel="canonical" href="http://localhost:4000/Turing.jl/docs/contributing/">
 
 
 
@@ -227,7 +227,7 @@
             
             
 
-            <li><a href="/Turing.jl/docs/contributing/" class="">How to Contribute</a></li>
+            <li><a href="/Turing.jl/docs/contributing/" class="active">How to Contribute</a></li>
           
             
             
@@ -249,15 +249,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Documentation">
-    <meta itemprop="description" content="Turing is a universal probabilistic programming language with an intuitive modelling interface, composable probabilistic inference and computational scalability.">
+    <meta itemprop="headline" content="Contributing">
+    <meta itemprop="description" content="Turing is an open source project. If you feel that you have some relevant skills and are interested in contributing, then please do get in touch. You can contribute by opening issues on GitHub or implementing things yourself and making a pull request. We would also appreciate example models written using Turing.">
     
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+          <h1 id="page-title" class="page__title" itemprop="headline">Contributing
 </h1>
           
         </header>
@@ -265,56 +265,37 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> </h4></header>
-              <ul class="toc__menu">
-  <li><a href="#citing-turing">Citing Turing</a></li>
-  <li><a href="#other-probablisticdeep-learning-languages">Other Probablistic/Deep Learning Languages</a></li>
-</ul>
-            </nav>
-          </aside>
-        
-        <p><strong>Turing</strong> is a <em>universal</em> probabilistic programming language with an intuitive modelling interface, composable probabilistic inference and computational scalability.</p>
+        <p>Turing is an open source project. If you feel that you have some relevant skills and are interested in contributing, then please do get in touch. You can contribute by opening issues on GitHub or implementing things yourself and making a pull request. We would also appreciate example models written using Turing.</p>
 
-<p>Turing provides <strong>Hamiltonian Monte Carlo</strong> (HMC) and <strong>particle MCMC</strong> sampling algorithms for complex posterior distributions (e.g. those involving discrete variables and stochastic control flows). Current features include:</p>
+<p>Turing has a <a href="style_guide.md">style guide</a>. It is not strictly necessary to review it before making a pull request, but you may be asked to change portions of your code to conform with the style guide before it is merged.</p>
+
+<p><a id="How-to-Contribute-1"></a></p>
+
+<h2 id="how-to-contribute">How to Contribute</h2>
+
+<p><a id="Getting-Started-1"></a></p>
+
+<h3 id="getting-started">Getting Started</h3>
 
 <ul>
-  <li><strong>Universal</strong> probabilistic programming with an intuitive modelling interface;</li>
-  <li><strong>Hamiltonian Monte Carlo</strong> (HMC) sampling for differentiable posterior distributions;</li>
-  <li><strong>Particle MCMC</strong> sampling for complex posterior distributions involving discrete variables and stochastic control flow; and</li>
-  <li><strong>Gibbs</strong> sampling that combines particle MCMC,  HMC and many other MCMC algorithms.</li>
+  <li><a href="https://github.com/TuringLang/Turing.jl#fork-destination-box">Fork this repository</a>.</li>
+  <li>Clone your fork on your local machine: <code class="highlighter-rouge">git clone https://github.com/your_username/Turing.jl</code>.</li>
+  <li>Add a remote corresponding to this repository:</li>
 </ul>
 
-<p><a id="Citing-Turing-1"></a></p>
+<p><code class="highlighter-rouge">git remote add upstream https://github.com/TuringLang/Turing.jl</code>.</p>
 
-<h2 id="citing-turing">Citing Turing</h2>
+<p><a id="What-Can-I-Do?-1"></a></p>
 
-<p>To cite Turing, please refer to the following paper. A sample BiBTeX entry entry is given below:</p>
+<h3 id="what-can-i-do">What Can I Do?</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-@InProceedings{turing17,
-  title = 	 {{T}uring: a language for flexible probabilistic inference},
-  author = 	 {Ge, Hong and Xu, Kai and Ghahramani, Zoubin},
-  booktitle = 	 {Proceedings of the 21th International Conference on Artificial Intelligence and Statistics},
-  year = 	 {2018},
-  series = 	 {Proceedings of Machine Learning Research},
-  publisher = 	 {PMLR},
-}
+<p>Look at the <a href="https://github.com/TuringLang/Turing.jl/issues">issues</a> page to find an outstanding issue. For instance, you could implement new features, fix bugs or write example models.</p>
 
-</code></pre></div></div>
+<p><a id="Git-Workflow-1"></a></p>
 
-<p><a id="Other-Probablistic/Deep-Learning-Languages-1"></a></p>
+<h3 id="git-workflow">Git Workflow</h3>
 
-<h2 id="other-probablisticdeep-learning-languages">Other Probablistic/Deep Learning Languages</h2>
-
-<ul>
-  <li><a href="http://mc-stan.org/">Stan</a></li>
-  <li><a href="https://www.microsoft.com/en-us/research/project/infernet/">Infer.NET</a></li>
-  <li><a href="http://pytorch.org/">PyTorch</a> / <a href="https://github.com/uber/pyro">Pyro</a></li>
-  <li><a href="https://www.tensorflow.org/">TensorFlow</a> / <a href="http://edwardlib.org/">Edward</a></li>
-  <li><a href="https://github.com/clab/dynet">DyNet</a></li>
-</ul>
+<p>For more information on how the Git workflow typically functions, please see the <a href="https://guides.github.com/introduction/flow/">GitHub’s introduction</a> or <a href="https://github.com/JuliaLang/julia/blob/master/CONTRIBUTING.md">Julia’s contribution guide</a>.</p>
 
 
         
@@ -333,11 +314,11 @@
       
   <nav class="pagination">
     
-      <a href="/Turing.jl/docs/guide/" class="pagination--pager" title="Guide
+      <a href="/Turing.jl/docs/library/" class="pagination--pager" title="Library
 ">Previous</a>
     
     
-      <a href="/Turing.jl/docs/quick-start/" class="pagination--pager" title="Probablistic Programming in Thirty Seconds
+      <a href="/Turing.jl/docs/style-guide/" class="pagination--pager" title="Style Guide
 ">Next</a>
     
   </nav>

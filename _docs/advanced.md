@@ -1,8 +1,9 @@
-
-<a id='Advanced-Usage-1'></a>
-
-# Advanced Usage
-
+---
+title: Advanced Usage
+permalink: /docs/advanced/
+toc: true
+toc_sticky: true
+---
 
 <a id='How-to-Define-a-Customized-Distribution-1'></a>
 

@@ -1,0 +1,500 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Introduction to Turing - Turing.jl</title>
+<meta name="description" content="IntroductionThis is the first of a series of tutorials on the universal probabilistic programming language Turing.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Turing.jl">
+<meta property="og:title" content="Introduction to Turing">
+<meta property="og:url" content="http://localhost:4000/Turing.jl/tutorials/introduction/">
+
+
+  <meta property="og:description" content="IntroductionThis is the first of a series of tutorials on the universal probabilistic programming language Turing.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-09-30T15:51:30-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Turing.jl/tutorials/introduction/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<link href="/Turing.jl/feed.xml" type="application/atom+xml" rel="alternate" title="Turing.jl Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/Turing.jl/assets/css/main.css">
+<link rel="stylesheet" href="/Turing.jl/assets/Documenter.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/Turing.jl/"><img src="/Turing.jl/assets/turing-logo.svg" width=50>Turing.jl </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/Turing.jl/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Turing.jl/docs/" >Documenation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Turing.jl/tutorials/" >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://github.com/TuringLang/Turing.jl" >GitHub</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Tutorials</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/Turing.jl/tutorials/0-introduction/" class="">Introduction to Turing</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Introduction to Turing">
+    <meta itemprop="description" content="IntroductionThis is the first of a series of tutorials on the universal probabilistic programming language Turing.">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Introduction to Turing
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> </h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a>
+    <ul>
+      <li><a href="#coin-flipping-without-turing">Coin-Flipping Without Turing</a></li>
+      <li><a href="#coin-flipping-with-turing">Coin Flipping With Turing</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h2 id="introduction">Introduction</h2>
+<p>This is the first of a series of tutorials on the universal probabilistic programming language <strong>Turing</strong>.</p>
+
+<p><strong>Turing</strong> is probabilistic programming system written entirely in <em>Julia</em>. It has an intuitive modelling syntax and supports a wide range of sampling-based inference algorithms. Most importantly, <strong>Turing</strong> inference is composable: it combines Markov chain sampling operations on subsets of model variables, e.g. using a combination of a Hamiltonian Monte Carlo (HMC) engine and a particle Gibbs (PG) engine. This composable inference engine allows the user to easily switch between black-box style inference methods such as HMC and customized inference methods.</p>
+
+<p>Familiarity with Julia is assumed through out this tutorial. If you are new to Julia, <a href="https://julialang.org/learning/">Learning Julia</a> is a good starting point.</p>
+
+<p>For users new to Bayesian machine learning, please consider more thorough introductions to the field, such as <a href="https://www.springer.com/us/book/9780387310732">Pattern Recognition and Machine Learning</a>. This tutorial tries to provide an intuition for Bayesian inference and gives a simple example on how to use <strong>Turing</strong>. Note that this is not a comprehensive introduction to Bayesian machine learning.</p>
+
+<h3 id="coin-flipping-without-turing">Coin-Flipping Without Turing</h3>
+<p>The following example illustrates the effect of updating our beliefs with every piece of new evidence we observe. In particular, assume that we are unsure about the probability of heads in a coin flip. To get an intuitive understanding of what “updating our beliefs” is, we will visualize the probability of heads in a coin flip after each observed evidence.</p>
+
+<p>First, let’s load some of the packages we need to flip a coin (<code class="highlighter-rouge">Random</code>, <code class="highlighter-rouge">Distributions</code>) and show our results (<code class="highlighter-rouge">Plots</code>). You will note that <strong>Turing</strong> is not an import here — we do not need it for this example. If you are already familiar with posterior updates, you can proceed to the next step.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Using Base modules.</span>
+<span class="k">using</span> <span class="n">Random</span>
+
+<span class="c"># Load a plotting library.</span>
+<span class="k">using</span> <span class="n">Plots</span>
+
+<span class="c"># Load the distributions library.</span>
+<span class="k">using</span> <span class="n">Distributions</span>
+</code></pre></div></div>
+
+<p>Next, we configure our posterior update model. First, let’s set the true probability that any coin flip will turn up heads and set the number of coin flips we will show our model:</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set the true probability of heads in a coin.</span>
+<span class="n">p_true</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c"># Iterate from having seen 0 observations to 100 observations.</span>
+<span class="n">Ns</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">100</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p>We will now use the Bernoulli distribution to flip 100 coins, and collect the results in a variable called <code class="highlighter-rouge">data</code>:</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Draw data from a Bernoulli distribution, i.e. draw heads or tails.</span>
+<span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="x">(</span><span class="mi">12</span><span class="x">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rand</span><span class="x">(</span><span class="n">Bernoulli</span><span class="x">(</span><span class="n">p_true</span><span class="x">),</span> <span class="n">last</span><span class="x">(</span><span class="n">Ns</span><span class="x">))</span>
+
+<span class="c"># Here's what the first five coin flips look like:</span>
+<span class="n">data</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span><span class="x">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5-element Array{Int64,1}:
+ 1
+ 0
+ 1
+ 1
+ 0
+</code></pre></div></div>
+
+<p>After flipping all our coins, we want to set a prior belief about what we think the distribution of coin flips look like. In this case, we are going to choose a common prior distribution called the <a href="https://en.wikipedia.org/wiki/Beta_distribution">Beta</a> distribution.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Our prior belief about the probability of heads in a coin toss.</span>
+<span class="n">prior_belief</span> <span class="o">=</span> <span class="n">Beta</span><span class="x">(</span><span class="mi">1</span><span class="x">,</span> <span class="mi">1</span><span class="x">);</span>
+</code></pre></div></div>
+
+<p>With our priors set and our data at hand, we can perform Bayesian inference.</p>
+
+<p>This is a fairly simple process. We expose one additional coin flip to our model every iteration, such that the first run only sees the first coin flip, while the last iteration sees all the coin flips. Then, we set the <code class="highlighter-rouge">updated_belief</code> variable to an updated version of the original Beta distribution that accounts for the new proportion of heads and tails.</p>
+
+<p>For the mathematically inclined, the <code class="highlighter-rouge">Beta</code> distribution is updated by adding each coin flip to the distribution’s $\alpha$ and $\beta$ parameters, which are initially defined as $\alpha = 1, \beta = 1$. Over time, with more and more coin flips, $\alpha$ and $\beta$ will be approximately equal to each other as we are equally likely to flip a heads or a tails, and the plot of the beta distribution will become more tightly centered around 0.5.</p>
+
+<p>This works because mean of the <code class="highlighter-rouge">Beta</code> distribution is defined as the following:</p>
+
+<p>$$ \text{E}[\text{Beta}] = \dfrac{\alpha}{\alpha+\beta} $$</p>
+
+<p>Which is 0.5 when $\alpha = \beta$, as we expect for a large enough number of coin flips. As we increase the number of samples, our variance will also decrease, such that the distribution will reflect less uncertainty about the probability of receiving a heads. The definition of the variance for the <code class="highlighter-rouge">Beta</code> distribution is the following:</p>
+
+<p>$$ \text{var}[\text{Beta}] = \dfrac{\alpha\beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} $$</p>
+
+<p>The intuition about this definition is that the variance of the distribution will approach 0 with more and more samples, as the denominator will grow faster than will the numerator. More samples means less variance.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This is required for plotting only.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">range</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">1</span><span class="x">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">100</span><span class="x">)</span>
+
+<span class="c"># Make an animation.</span>
+<span class="n">animation</span> <span class="o">=</span> <span class="nd">@animate</span> <span class="k">for</span> <span class="x">(</span><span class="n">i</span><span class="x">,</span> <span class="n">N</span><span class="x">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="x">(</span><span class="n">Ns</span><span class="x">)</span>
+
+    <span class="c"># Count the number of heads and tails.</span>
+    <span class="n">heads</span> <span class="o">=</span> <span class="n">sum</span><span class="x">(</span><span class="n">data</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="x">])</span>
+    <span class="n">tails</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">heads</span>
+
+    <span class="c"># Update our prior belief in closed form (this is possible because we use a conjugate prior).</span>
+    <span class="n">updated_belief</span> <span class="o">=</span> <span class="n">Beta</span><span class="x">(</span><span class="n">prior_belief</span><span class="o">.</span><span class="n">α</span> <span class="o">+</span> <span class="n">heads</span><span class="x">,</span> <span class="n">prior_belief</span><span class="o">.</span><span class="n">β</span> <span class="o">+</span> <span class="n">tails</span><span class="x">)</span>
+
+    <span class="c"># Plotting</span>
+    <span class="n">plot</span><span class="x">(</span><span class="n">x</span><span class="x">,</span> <span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Ref</span><span class="x">(</span><span class="n">updated_belief</span><span class="x">),</span> <span class="n">x</span><span class="x">),</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="x">(</span><span class="mi">500</span><span class="x">,</span> <span class="mi">250</span><span class="x">),</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s">"Updated belief after </span><span class="si">$</span><span class="s">N observations"</span><span class="x">,</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s">"probability of heads"</span><span class="x">,</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s">""</span><span class="x">,</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="nb">nothing</span><span class="x">,</span>
+        <span class="n">xlim</span> <span class="o">=</span> <span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">),</span>
+        <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="x">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="x">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="x">)</span>
+    <span class="n">vline!</span><span class="x">([</span><span class="n">p_true</span><span class="x">])</span>
+<span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/7974003/44995702-37c1b200-af9c-11e8-8b26-c88a528956af.gif" alt="animation" /></p>
+
+<p>The animation above shows that with increasing evidence our belief about the probability of heads in a coin flip slowly adjusts towards the true value. The orange line in the animation represents the true probability of seeing heads on a single coin flip, while the mode of the distribution shows what the model believes the probability of a heads is given the evidence it has seen.</p>
+
+<h3 id="coin-flipping-with-turing">Coin Flipping With Turing</h3>
+
+<p>In the previous example, we used the fact that our prior distribution is a <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a>. Note that a closed-form expression (the <code class="highlighter-rouge">updated_belief</code> expression) for the posterior is not accessible in general and usually does not exist for more interesting models.</p>
+
+<p>We are now going to move away from the closed-form expression above and specify the same model using <strong>Turing</strong>. To do so, we will first need to import <code class="highlighter-rouge">Turing</code>, <code class="highlighter-rouge">MCMCChain</code>, <code class="highlighter-rouge">Distributions</code>, and <code class="highlighter-rouge">StatPlots</code>. <code class="highlighter-rouge">MCMChain</code> is a library built by the Turing team to help summarize Markov Chain Monte Carlo (MCMC) simulations, as well as a variety of utility functions for diagnostics and visualizations.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Load Turing and MCMCChain.</span>
+<span class="k">using</span> <span class="n">Turing</span><span class="x">,</span> <span class="n">MCMCChain</span>
+
+<span class="c"># Load the distributions library.</span>
+<span class="k">using</span> <span class="n">Distributions</span>
+
+<span class="c"># Load stats plots for density plots.</span>
+<span class="k">using</span> <span class="n">StatPlots</span>
+</code></pre></div></div>
+
+<p>First, we define the coin-flip model using Turing.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@model</span> <span class="n">coinflip</span><span class="x">(</span><span class="n">y</span><span class="x">)</span> <span class="o">=</span> <span class="k">begin</span>
+
+    <span class="c"># Our prior belief about the probability of heads in a coin.</span>
+    <span class="n">p</span> <span class="o">~</span><span class="err"> </span><span class="n">Beta</span><span class="x">(</span><span class="mi">1</span><span class="x">,</span> <span class="mi">1</span><span class="x">)</span>
+
+    <span class="c"># The number of observations.</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">length</span><span class="x">(</span><span class="n">y</span><span class="x">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+        <span class="c"># Heads or tails of a coin are drawn from a Bernoulli distribution.</span>
+        <span class="n">y</span><span class="x">[</span><span class="n">n</span><span class="x">]</span> <span class="o">~</span> <span class="n">Bernoulli</span><span class="x">(</span><span class="n">p</span><span class="x">)</span>
+    <span class="k">end</span>
+<span class="k">end</span><span class="x">;</span>
+</code></pre></div></div>
+
+<p>After defining the model, we can approximate the posterior distribution by drawing samples from the distribution. In this example, we use a <a href="https://en.wikipedia.org/wiki/Hamiltonian_Monte_Carlo">Hamiltonian Monte Carlo</a> sampler to draw these samples. Later tutorials will give more information on the samplers available in Turing and discuss their use for different models.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Settings of the Hamiltonian Monte Carlo (HMC) sampler.</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">ϵ</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">τ</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c"># Start sampling.</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">sample</span><span class="x">(</span><span class="n">coinflip</span><span class="x">(</span><span class="n">data</span><span class="x">),</span> <span class="n">HMC</span><span class="x">(</span><span class="n">iterations</span><span class="x">,</span> <span class="n">ϵ</span><span class="x">,</span> <span class="n">τ</span><span class="x">));</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[HMC] Finished with
+  Running time        = 5.753153756000003;
+  Accept rate         = 0.997;
+  #lf / sample        = 9.99;
+  #evals / sample     = 11.989;
+  pre-cond. diag mat  = [1.0].
+</code></pre></div></div>
+
+<p>After finishing the sampling process, we can visualize the posterior distribution approximated using Turing against the posterior distribution in closed-form. We can extract the chain data from the sampler using the <code class="highlighter-rouge">Chains(chain[:p])</code> function, exported from the <code class="highlighter-rouge">MCMCChain</code> module. <code class="highlighter-rouge">Chains(chain[:p])</code> creates an instance of the <code class="highlighter-rouge">Chain</code> type which summarizes the MCMC simulation — the <code class="highlighter-rouge">MCMCChain</code> module supports numerous tools for plotting, summarizing, and describing variables of type <code class="highlighter-rouge">Chain</code>.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Construct summary of the sampling process for the parameter p, i.e. the probability of heads in a coin.</span>
+<span class="n">p_summary</span> <span class="o">=</span> <span class="n">Chains</span><span class="x">(</span><span class="n">chain</span><span class="x">[</span><span class="o">:</span><span class="n">p</span><span class="x">])</span>
+<span class="n">histogramplot</span><span class="x">(</span><span class="n">p_summary</span><span class="x">)</span>
+</code></pre></div></div>
+
+<pre class="julia-error">
+ERROR: BoundsError: attempt to access &#40;Object of type &quot;Chains&quot;
+
+Iterations &#61; 1:1000
+Thinning interval &#61; 1
+Chains &#61; 1
+Samples per chain &#61; 1000
+
+&#91;0.859911; 0.219831; 0.799251; 0.252475; 0.756126; 0.332922; 0.669081; 0.420632; 0.63915; 0.437942; 0.599946; 0.409926; 0.590673; 0.409765; 0.591971; 0.487866; 0.583552; 0.44035; 0.512147; 0.491932; 0.601617; 0.450785; 0.58042; 0.49478; 0.55182; 0.528587; 0.54069; 0.45504; 0.608661; 0.442531; 0.582757; 0.425195; 0.601671; 0.471154; 0.559407; 0.473431; 0.576078; 0.490043; 0.60464; 0.41728; 0.606404; 0.461398; 0.578026; 0.446413; 0.537205; 0.508184; 0.535506; 0.581215; 0.502707; 0.509311; 0.495396; 0.566103; 0.523416; 0.551977; 0.451075; 0.573269; 0.466438; 0.584459; 0.467091; 0.568156; 0.462262; 0.561618; 0.481817; 0.564462; 0.495307; 0.566796; 0.477033; 0.518375; 0.572687; 0.488694; 0.560311; 0.46135; 0.560886; 0.516149; 0.511534; 0.567864; 0.522984; 0.52007; 0.533833; 0.471573; 0.517911; 0.539733; 0.510988; 0.490582; 0.526581; 0.516399; 0.526855; 0.469027; 0.579626; 0.474449; 0.56112; 0.47097; 0.525105; 0.544723; 0.512862; 0.540015; 0.48121; 0.582677; 0.481406; 0.562958; 0.460589; 0.589465; 0.421023; 0.58081; 0.515095; 0.500583; 0.57463; 0.461984; 0.57904; 0.493266; 0.518349; 0.58575; 0.483387; 0.515011; 0.607159; 0.446151; 0.579985; 0.498946; 0.563839; 0.450033; 0.5675; 0.445045; 0.571488; 0.499769; 0.516717; 0.505855; 0.504099; 0.53836; 0.494085; 0.57148; 0.492614; 0.502412; 0.532741; 0.517019; 0.520494; 0.552227; 0.431204; 0.608076; 0.458417; 0.561205; 0.49194; 0.510755; 0.58809; 0.480264; 0.571455; 0.439482; 0.549905; 0.503349; 0.533949; 0.533545; 0.541372; 0.523952; 0.504072; 0.519836; 0.499389; 0.497221; 0.550595; 0.511801; 0.482714; 0.573685; 0.437977; 0.544274; 0.496017; 0.524929; 0.500729; 0.512442; 0.503148; 0.543378; 0.481489; 0.546319; 0.481481; 0.508111; 0.534516; 0.492375; 0.61969; 0.455916; 0.568847; 0.470731; 0.51083; 0.538455; 0.464772; 0.558433; 0.454676; 0.583663; 0.51314; 0.514413; 0.517513; 0.560116; 0.493722; 0.485544; 0.520992; 0.504836; 0.574438; 0.4197; 0.580615; 0.444375; 0.600302; 0.450609; 0.585372; 0.506647; 0.507058; 0.518575; 0.517453; 0.520548; 0.493112; 0.559728; 0.487036; 0.600396; 0.472688; 0.561726; 0.500773; 0.534201; 0.492703; 0.578677; 0.536195; 0.559969; 0.457614; 0.561242; 0.474059; 0.527406; 0.499376; 0.506803; 0.551948; 0.520629; 0.504395; 0.542924; 0.518023; 0.52188; 0.476829; 0.579959; 0.464342; 0.574876; 0.468158; 0.515251; 0.492433; 0.515102; 0.509558; 0.542304; 0.500825; 0.502724; 0.558639; 0.439043; 0.586088; 0.48791; 0.566474; 0.511124; 0.552744; 0.479794; 0.539487; 0.538898; 0.525002; 0.482602; 0.588786; 0.498731; 0.539586; 0.499637; 0.51246; 0.510057; 0.521917; 0.543979; 0.501079; 0.524642; 0.525989; 0.487782; 0.545047; 0.491088; 0.585486; 0.450373; 0.579693; 0.44552; 0.608544; 0.415174; 0.605942; 0.447832; 0.587616; 0.443228; 0.600932; 0.463933; 0.587011; 0.459817; 0.507017; 0.51515; 0.49919; 0.548011; 0.53248; 0.52864; 0.452972; 0.56814; 0.492483; 0.483165; 0.597419; 0.474598; 0.551165; 0.474542; 0.513112; 0.508885; 0.487016; 0.531732; 0.508594; 0.529443; 0.528684; 0.486142; 0.541344; 0.525129; 0.536424; 0.499404; 0.526353; 0.508637; 0.495549; 0.488665; 0.551114; 0.458274; 0.554145; 0.502759; 0.549518; 0.51348; 0.511914; 0.555068; 0.409024; 0.621521; 0.442304; 0.556946; 0.506205; 0.55213; 0.496585; 0.576568; 0.437406; 0.559794; 0.488051; 0.558035; 0.475327; 0.56987; 0.473082; 0.583735; 0.485326; 0.534796; 0.512497; 0.51061; 0.494445; 0.569429; 0.465455; 0.589214; 0.443353; 0.594496; 0.398304; 0.639235; 0.430423; 0.581218; 0.473274; 0.574278; 0.489342; 0.499446; 0.53725; 0.427773; 0.600837; 0.4267; 0.645408; 0.390665; 0.637093; 0.401781; 0.565785; 0.524929; 0.549621; 0.484157; 0.531283; 0.554068; 0.458565; 0.542372; 0.537046; 0.476593; 0.572851; 0.434995; 0.626781; 0.428695; 0.608936; 0.405741; 0.614995; 0.422807; 0.601427; 0.472905; 0.526187; 0.476408; 0.553896; 0.445638; 0.596821; 0.451274; 0.629843; 0.416044; 0.590979; 0.455025; 0.647183; 0.406613; 0.605732; 0.431113; 0.561398; 0.452553; 0.537279; 0.53253; 0.563093; 0.487695; 0.533325; 0.554311; 0.496435; 0.559884; 0.457133; 0.563263; 0.460916; 0.575335; 0.45947; 0.597775; 0.429049; 0.594132; 0.421072; 0.598818; 0.391892; 0.647453; 0.367384; 0.670613; 0.410564; 0.595146; 0.475649; 0.534505; 0.482657; 0.557141; 0.504128; 0.609044; 0.453432; 0.577247; 0.454318; 0.513404; 0.535047; 0.55995; 0.443427; 0.559874; 0.488786; 0.557246; 0.489773; 0.530582; 0.540863; 0.467837; 0.553757; 0.475427; 0.532766; 0.544432; 0.485483; 0.609505; 0.47545; 0.553327; 0.513791; 0.466856; 0.551185; 0.471578; 0.57712; 0.49802; 0.520857; 0.556462; 0.476382; 0.566466; 0.430949; 0.614524; 0.423746; 0.595921; 0.47206; 0.535354; 0.510915; 0.512271; 0.530335; 0.527361; 0.530807; 0.539802; 0.507455; 0.521698; 0.499062; 0.516223; 0.530379; 0.488284; 0.577347; 0.475675; 0.523899; 0.475213; 0.549078; 0.522764; 0.511846; 0.50364; 0.511824; 0.490649; 0.55796; 0.508955; 0.595928; 0.468686; 0.526629; 0.503215; 0.503526; 0.525931; 0.464984; 0.600104; 0.426611; 0.627216; 0.451218; 0.577124; 0.487188; 0.557152; 0.450854; 0.58115; 0.508898; 0.535066; 0.530067; 0.47426; 0.570789; 0.437473; 0.588896; 0.467992; 0.553355; 0.496373; 0.545925; 0.486761; 0.565859; 0.496556; 0.562711; 0.538052; 0.508944; 0.552049; 0.511906; 0.594015; 0.442124; 0.589754; 0.497594; 0.552138; 0.495389; 0.517398; 0.525662; 0.506147; 0.516534; 0.584663; 0.489276; 0.542359; 0.533319; 0.449913; 0.540067; 0.54678; 0.499682; 0.523051; 0.535658; 0.542354; 0.498422; 0.514104; 0.508586; 0.508318; 0.517046; 0.550307; 0.490859; 0.548248; 0.528096; 0.484084; 0.554196; 0.473299; 0.536915; 0.511847; 0.522454; 0.505904; 0.536554; 0.544251; 0.548403; 0.472638; 0.578586; 0.425192; 0.579239; 0.471356; 0.576755; 0.477715; 0.535265; 0.520107; 0.536949; 0.505475; 0.557546; 0.465054; 0.606892; 0.373492; 0.674324; 0.37196; 0.660732; 0.446341; 0.555195; 0.497046; 0.478935; 0.563179; 0.521208; 0.55895; 0.427366; 0.615475; 0.446704; 0.585044; 0.506886; 0.548888; 0.485495; 0.567052; 0.54142; 0.51745; 0.55367; 0.513849; 0.543057; 0.487493; 0.515484; 0.516656; 0.534421; 0.507897; 0.578037; 0.435884; 0.435884; 0.592913; 0.477505; 0.553104; 0.492441; 0.454065; 0.565614; 0.494446; 0.535367; 0.517627; 0.505994; 0.545; 0.455802; 0.567604; 0.485629; 0.521235; 0.533441; 0.538508; 0.477411; 0.547922; 0.498443; 0.498253; 0.515829; 0.510008; 0.570328; 0.483137; 0.523829; 0.477222; 0.57269; 0.472181; 0.594571; 0.46303; 0.538633; 0.479566; 0.525663; 0.536253; 0.569131; 0.492794; 0.517744; 0.507136; 0.522543; 0.533359; 0.480704; 0.548646; 0.521628; 0.528133; 0.580463; 0.500982; 0.526132; 0.503555; 0.590529; 0.488521; 0.509311; 0.483443; 0.515076; 0.553421; 0.489199; 0.565052; 0.491098; 0.543316; 0.500957; 0.57198; 0.460306; 0.547122; 0.486859; 0.560273; 0.51786; 0.533662; 0.562005; 0.5131; 0.530695; 0.514296; 0.551722; 0.547085; 0.469434; 0.574062; 0.49766; 0.52992; 0.500828; 0.543376; 0.447749; 0.56533; 0.462438; 0.546898; 0.525329; 0.513321; 0.525304; 0.519527; 0.559058; 0.501735; 0.519262; 0.497875; 0.584899; 0.508758; 0.49082; 0.579506; 0.45987; 0.531855; 0.519053; 0.58353; 0.531211; 0.467107; 0.561973; 0.506677; 0.55708; 0.506645; 0.578707; 0.400313; 0.647881; 0.396649; 0.606199; 0.418063; 0.626754; 0.440354; 0.581635; 0.503832; 0.529885; 0.535021; 0.496241; 0.531326; 0.552476; 0.538965; 0.470013; 0.560375; 0.446446; 0.54773; 0.460328; 0.598833; 0.396155; 0.595381; 0.461738; 0.591019; 0.49113; 0.560265; 0.574694; 0.525442; 0.52731; 0.531848; 0.526236; 0.474355; 0.567035; 0.456407; 0.580051; 0.455394; 0.512837; 0.528863; 0.523432; 0.545262; 0.511518; 0.443272; 0.577454; 0.498324; 0.529667; 0.478679; 0.555385; 0.503367; 0.507293; 0.578644; 0.471682; 0.537349; 0.547476; 0.507589; 0.503294; 0.528674; 0.546466; 0.44614; 0.61815; 0.453071; 0.622168; 0.460753; 0.558427; 0.460604; 0.597506; 0.431298; 0.611295; 0.495194; 0.597387; 0.451574; 0.608877; 0.470237; 0.652573; 0.415478; 0.415478; 0.612084; 0.456165; 0.545111; 0.474041; 0.545702; 0.490718; 0.53761; 0.488508; 0.538027; 0.538276; 0.489504; 0.56339; 0.491748; 0.530574; 0.505248; 0.521303; 0.519122; 0.572528; 0.453795; 0.577728; 0.510558; 0.525753; 0.541957; 0.482509; 0.536227; 0.516341; 0.552143; 0.513622; 0.563193; 0.492449; 0.54282; 0.505304; 0.557072; 0.472926; 0.576201; 0.440176; 0.585835; 0.474913; 0.498708; 0.548552; 0.463255; 0.551587; 0.467717; 0.571912; 0.434117; 0.567563; 0.512247; 0.504809; 0.541627; 0.494964; 0.566137; 0.548384; 0.444155; 0.605453; 0.416378; 0.546192; 0.462479; 0.607059; 0.459203; 0.551989; 0.474303; 0.576344; 0.489337; 0.506716; 0.538453; 0.503267; 0.558595; 0.52518; 0.506839; 0.506839; 0.534828; 0.455744; 0.602933; 0.421226; 0.634105; 0.403042; 0.620641; 0.404295; 0.604984; 0.486553; 0.558908; 0.446907; 0.612129; 0.425525; 0.551218; 0.502624; 0.516073; 0.529676; 0.507549; 0.537537; 0.496835; 0.57957; 0.501129; 0.561579; 0.453737; 0.603675; 0.420264; 0.601177; 0.438282; 0.582034; 0.487814; 0.576344; 0.48799; 0.550297; 0.450593; 0.593226; 0.474774; 0.499274; 0.534154; 0.544503; 0.460867; 0.539944; 0.536057; 0.511431; 0.54995; 0.505064; 0.486767; 0.572188; 0.463836; 0.58146; 0.501087; 0.538741; 0.499775; 0.517175; 0.564061; 0.519709; 0.489929; 0.554469; 0.480098; 0.569387; 0.467764; 0.603539; 0.413779; 0.632713; 0.435734; 0.568025; 0.480717; 0.511657; 0.503977; 0.512038; 0.550682; 0.477456; 0.627324; 0.371534; 0.615698; 0.415799; 0.644664; 0.398258; 0.615476; 0.417888; 0.617898; 0.461407; 0.58562; 0.485305; 0.566408; 0.493808; 0.544974; 0.498308; 0.541478; 0.480608; 0.553936; 0.480089; 0.591251; 0.500166; 0.541058; 0.482535; 0.559485; 0.504942; 0.589646; 0.437492; 0.617755; 0.424136; 0.601704; 0.440138; 0.586653; 0.515312; 0.515899; 0.600116; 0.413225; 0.596926; 0.496587; 0.575525; 0.458875; 0.586263; 0.455971; 0.545752; 0.466472; 0.564436; 0.514864; 0.542797; 0.51671; 0.505897; 0.531536; 0.498701; 0.569382; 0.471447; 0.495218; 0.554109; 0.502583; 0.535293; 0.450821; 0.581517; 0.445648; 0.561575; 0.449228; 0.517292; 0.539339; 0.496273; 0.473286&#93;,&#41;
+  at index &#91;2&#93;
+</pre>
+
+<p>Now we can build our plot:</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Compute the posterior distribution in closed-form.</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">length</span><span class="x">(</span><span class="n">data</span><span class="x">)</span>
+<span class="n">heads</span> <span class="o">=</span> <span class="n">sum</span><span class="x">(</span><span class="n">data</span><span class="x">)</span>
+<span class="n">updated_belief</span> <span class="o">=</span> <span class="n">Beta</span><span class="x">(</span><span class="n">prior_belief</span><span class="o">.</span><span class="n">α</span> <span class="o">+</span> <span class="n">heads</span><span class="x">,</span> <span class="n">prior_belief</span><span class="o">.</span><span class="n">β</span> <span class="o">+</span> <span class="n">N</span> <span class="o">-</span> <span class="n">heads</span><span class="x">)</span>
+
+<span class="c"># Visualize a blue density plot of the approximate posterior distribution using HMC (see "Chain 1" in the legend).</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">densityplot</span><span class="x">(</span><span class="n">p_summary</span><span class="x">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">),</span> <span class="n">legend</span> <span class="o">=</span> <span class="o">:</span><span class="n">best</span><span class="x">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span><span class="x">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">:</span><span class="n">blue</span><span class="x">)</span>
+</code></pre></div></div>
+
+<pre class="julia-error">
+ERROR: BoundsError: attempt to access &#40;Object of type &quot;Chains&quot;
+
+Iterations &#61; 1:1000
+Thinning interval &#61; 1
+Chains &#61; 1
+Samples per chain &#61; 1000
+
+&#91;0.859911; 0.219831; 0.799251; 0.252475; 0.756126; 0.332922; 0.669081; 0.420632; 0.63915; 0.437942; 0.599946; 0.409926; 0.590673; 0.409765; 0.591971; 0.487866; 0.583552; 0.44035; 0.512147; 0.491932; 0.601617; 0.450785; 0.58042; 0.49478; 0.55182; 0.528587; 0.54069; 0.45504; 0.608661; 0.442531; 0.582757; 0.425195; 0.601671; 0.471154; 0.559407; 0.473431; 0.576078; 0.490043; 0.60464; 0.41728; 0.606404; 0.461398; 0.578026; 0.446413; 0.537205; 0.508184; 0.535506; 0.581215; 0.502707; 0.509311; 0.495396; 0.566103; 0.523416; 0.551977; 0.451075; 0.573269; 0.466438; 0.584459; 0.467091; 0.568156; 0.462262; 0.561618; 0.481817; 0.564462; 0.495307; 0.566796; 0.477033; 0.518375; 0.572687; 0.488694; 0.560311; 0.46135; 0.560886; 0.516149; 0.511534; 0.567864; 0.522984; 0.52007; 0.533833; 0.471573; 0.517911; 0.539733; 0.510988; 0.490582; 0.526581; 0.516399; 0.526855; 0.469027; 0.579626; 0.474449; 0.56112; 0.47097; 0.525105; 0.544723; 0.512862; 0.540015; 0.48121; 0.582677; 0.481406; 0.562958; 0.460589; 0.589465; 0.421023; 0.58081; 0.515095; 0.500583; 0.57463; 0.461984; 0.57904; 0.493266; 0.518349; 0.58575; 0.483387; 0.515011; 0.607159; 0.446151; 0.579985; 0.498946; 0.563839; 0.450033; 0.5675; 0.445045; 0.571488; 0.499769; 0.516717; 0.505855; 0.504099; 0.53836; 0.494085; 0.57148; 0.492614; 0.502412; 0.532741; 0.517019; 0.520494; 0.552227; 0.431204; 0.608076; 0.458417; 0.561205; 0.49194; 0.510755; 0.58809; 0.480264; 0.571455; 0.439482; 0.549905; 0.503349; 0.533949; 0.533545; 0.541372; 0.523952; 0.504072; 0.519836; 0.499389; 0.497221; 0.550595; 0.511801; 0.482714; 0.573685; 0.437977; 0.544274; 0.496017; 0.524929; 0.500729; 0.512442; 0.503148; 0.543378; 0.481489; 0.546319; 0.481481; 0.508111; 0.534516; 0.492375; 0.61969; 0.455916; 0.568847; 0.470731; 0.51083; 0.538455; 0.464772; 0.558433; 0.454676; 0.583663; 0.51314; 0.514413; 0.517513; 0.560116; 0.493722; 0.485544; 0.520992; 0.504836; 0.574438; 0.4197; 0.580615; 0.444375; 0.600302; 0.450609; 0.585372; 0.506647; 0.507058; 0.518575; 0.517453; 0.520548; 0.493112; 0.559728; 0.487036; 0.600396; 0.472688; 0.561726; 0.500773; 0.534201; 0.492703; 0.578677; 0.536195; 0.559969; 0.457614; 0.561242; 0.474059; 0.527406; 0.499376; 0.506803; 0.551948; 0.520629; 0.504395; 0.542924; 0.518023; 0.52188; 0.476829; 0.579959; 0.464342; 0.574876; 0.468158; 0.515251; 0.492433; 0.515102; 0.509558; 0.542304; 0.500825; 0.502724; 0.558639; 0.439043; 0.586088; 0.48791; 0.566474; 0.511124; 0.552744; 0.479794; 0.539487; 0.538898; 0.525002; 0.482602; 0.588786; 0.498731; 0.539586; 0.499637; 0.51246; 0.510057; 0.521917; 0.543979; 0.501079; 0.524642; 0.525989; 0.487782; 0.545047; 0.491088; 0.585486; 0.450373; 0.579693; 0.44552; 0.608544; 0.415174; 0.605942; 0.447832; 0.587616; 0.443228; 0.600932; 0.463933; 0.587011; 0.459817; 0.507017; 0.51515; 0.49919; 0.548011; 0.53248; 0.52864; 0.452972; 0.56814; 0.492483; 0.483165; 0.597419; 0.474598; 0.551165; 0.474542; 0.513112; 0.508885; 0.487016; 0.531732; 0.508594; 0.529443; 0.528684; 0.486142; 0.541344; 0.525129; 0.536424; 0.499404; 0.526353; 0.508637; 0.495549; 0.488665; 0.551114; 0.458274; 0.554145; 0.502759; 0.549518; 0.51348; 0.511914; 0.555068; 0.409024; 0.621521; 0.442304; 0.556946; 0.506205; 0.55213; 0.496585; 0.576568; 0.437406; 0.559794; 0.488051; 0.558035; 0.475327; 0.56987; 0.473082; 0.583735; 0.485326; 0.534796; 0.512497; 0.51061; 0.494445; 0.569429; 0.465455; 0.589214; 0.443353; 0.594496; 0.398304; 0.639235; 0.430423; 0.581218; 0.473274; 0.574278; 0.489342; 0.499446; 0.53725; 0.427773; 0.600837; 0.4267; 0.645408; 0.390665; 0.637093; 0.401781; 0.565785; 0.524929; 0.549621; 0.484157; 0.531283; 0.554068; 0.458565; 0.542372; 0.537046; 0.476593; 0.572851; 0.434995; 0.626781; 0.428695; 0.608936; 0.405741; 0.614995; 0.422807; 0.601427; 0.472905; 0.526187; 0.476408; 0.553896; 0.445638; 0.596821; 0.451274; 0.629843; 0.416044; 0.590979; 0.455025; 0.647183; 0.406613; 0.605732; 0.431113; 0.561398; 0.452553; 0.537279; 0.53253; 0.563093; 0.487695; 0.533325; 0.554311; 0.496435; 0.559884; 0.457133; 0.563263; 0.460916; 0.575335; 0.45947; 0.597775; 0.429049; 0.594132; 0.421072; 0.598818; 0.391892; 0.647453; 0.367384; 0.670613; 0.410564; 0.595146; 0.475649; 0.534505; 0.482657; 0.557141; 0.504128; 0.609044; 0.453432; 0.577247; 0.454318; 0.513404; 0.535047; 0.55995; 0.443427; 0.559874; 0.488786; 0.557246; 0.489773; 0.530582; 0.540863; 0.467837; 0.553757; 0.475427; 0.532766; 0.544432; 0.485483; 0.609505; 0.47545; 0.553327; 0.513791; 0.466856; 0.551185; 0.471578; 0.57712; 0.49802; 0.520857; 0.556462; 0.476382; 0.566466; 0.430949; 0.614524; 0.423746; 0.595921; 0.47206; 0.535354; 0.510915; 0.512271; 0.530335; 0.527361; 0.530807; 0.539802; 0.507455; 0.521698; 0.499062; 0.516223; 0.530379; 0.488284; 0.577347; 0.475675; 0.523899; 0.475213; 0.549078; 0.522764; 0.511846; 0.50364; 0.511824; 0.490649; 0.55796; 0.508955; 0.595928; 0.468686; 0.526629; 0.503215; 0.503526; 0.525931; 0.464984; 0.600104; 0.426611; 0.627216; 0.451218; 0.577124; 0.487188; 0.557152; 0.450854; 0.58115; 0.508898; 0.535066; 0.530067; 0.47426; 0.570789; 0.437473; 0.588896; 0.467992; 0.553355; 0.496373; 0.545925; 0.486761; 0.565859; 0.496556; 0.562711; 0.538052; 0.508944; 0.552049; 0.511906; 0.594015; 0.442124; 0.589754; 0.497594; 0.552138; 0.495389; 0.517398; 0.525662; 0.506147; 0.516534; 0.584663; 0.489276; 0.542359; 0.533319; 0.449913; 0.540067; 0.54678; 0.499682; 0.523051; 0.535658; 0.542354; 0.498422; 0.514104; 0.508586; 0.508318; 0.517046; 0.550307; 0.490859; 0.548248; 0.528096; 0.484084; 0.554196; 0.473299; 0.536915; 0.511847; 0.522454; 0.505904; 0.536554; 0.544251; 0.548403; 0.472638; 0.578586; 0.425192; 0.579239; 0.471356; 0.576755; 0.477715; 0.535265; 0.520107; 0.536949; 0.505475; 0.557546; 0.465054; 0.606892; 0.373492; 0.674324; 0.37196; 0.660732; 0.446341; 0.555195; 0.497046; 0.478935; 0.563179; 0.521208; 0.55895; 0.427366; 0.615475; 0.446704; 0.585044; 0.506886; 0.548888; 0.485495; 0.567052; 0.54142; 0.51745; 0.55367; 0.513849; 0.543057; 0.487493; 0.515484; 0.516656; 0.534421; 0.507897; 0.578037; 0.435884; 0.435884; 0.592913; 0.477505; 0.553104; 0.492441; 0.454065; 0.565614; 0.494446; 0.535367; 0.517627; 0.505994; 0.545; 0.455802; 0.567604; 0.485629; 0.521235; 0.533441; 0.538508; 0.477411; 0.547922; 0.498443; 0.498253; 0.515829; 0.510008; 0.570328; 0.483137; 0.523829; 0.477222; 0.57269; 0.472181; 0.594571; 0.46303; 0.538633; 0.479566; 0.525663; 0.536253; 0.569131; 0.492794; 0.517744; 0.507136; 0.522543; 0.533359; 0.480704; 0.548646; 0.521628; 0.528133; 0.580463; 0.500982; 0.526132; 0.503555; 0.590529; 0.488521; 0.509311; 0.483443; 0.515076; 0.553421; 0.489199; 0.565052; 0.491098; 0.543316; 0.500957; 0.57198; 0.460306; 0.547122; 0.486859; 0.560273; 0.51786; 0.533662; 0.562005; 0.5131; 0.530695; 0.514296; 0.551722; 0.547085; 0.469434; 0.574062; 0.49766; 0.52992; 0.500828; 0.543376; 0.447749; 0.56533; 0.462438; 0.546898; 0.525329; 0.513321; 0.525304; 0.519527; 0.559058; 0.501735; 0.519262; 0.497875; 0.584899; 0.508758; 0.49082; 0.579506; 0.45987; 0.531855; 0.519053; 0.58353; 0.531211; 0.467107; 0.561973; 0.506677; 0.55708; 0.506645; 0.578707; 0.400313; 0.647881; 0.396649; 0.606199; 0.418063; 0.626754; 0.440354; 0.581635; 0.503832; 0.529885; 0.535021; 0.496241; 0.531326; 0.552476; 0.538965; 0.470013; 0.560375; 0.446446; 0.54773; 0.460328; 0.598833; 0.396155; 0.595381; 0.461738; 0.591019; 0.49113; 0.560265; 0.574694; 0.525442; 0.52731; 0.531848; 0.526236; 0.474355; 0.567035; 0.456407; 0.580051; 0.455394; 0.512837; 0.528863; 0.523432; 0.545262; 0.511518; 0.443272; 0.577454; 0.498324; 0.529667; 0.478679; 0.555385; 0.503367; 0.507293; 0.578644; 0.471682; 0.537349; 0.547476; 0.507589; 0.503294; 0.528674; 0.546466; 0.44614; 0.61815; 0.453071; 0.622168; 0.460753; 0.558427; 0.460604; 0.597506; 0.431298; 0.611295; 0.495194; 0.597387; 0.451574; 0.608877; 0.470237; 0.652573; 0.415478; 0.415478; 0.612084; 0.456165; 0.545111; 0.474041; 0.545702; 0.490718; 0.53761; 0.488508; 0.538027; 0.538276; 0.489504; 0.56339; 0.491748; 0.530574; 0.505248; 0.521303; 0.519122; 0.572528; 0.453795; 0.577728; 0.510558; 0.525753; 0.541957; 0.482509; 0.536227; 0.516341; 0.552143; 0.513622; 0.563193; 0.492449; 0.54282; 0.505304; 0.557072; 0.472926; 0.576201; 0.440176; 0.585835; 0.474913; 0.498708; 0.548552; 0.463255; 0.551587; 0.467717; 0.571912; 0.434117; 0.567563; 0.512247; 0.504809; 0.541627; 0.494964; 0.566137; 0.548384; 0.444155; 0.605453; 0.416378; 0.546192; 0.462479; 0.607059; 0.459203; 0.551989; 0.474303; 0.576344; 0.489337; 0.506716; 0.538453; 0.503267; 0.558595; 0.52518; 0.506839; 0.506839; 0.534828; 0.455744; 0.602933; 0.421226; 0.634105; 0.403042; 0.620641; 0.404295; 0.604984; 0.486553; 0.558908; 0.446907; 0.612129; 0.425525; 0.551218; 0.502624; 0.516073; 0.529676; 0.507549; 0.537537; 0.496835; 0.57957; 0.501129; 0.561579; 0.453737; 0.603675; 0.420264; 0.601177; 0.438282; 0.582034; 0.487814; 0.576344; 0.48799; 0.550297; 0.450593; 0.593226; 0.474774; 0.499274; 0.534154; 0.544503; 0.460867; 0.539944; 0.536057; 0.511431; 0.54995; 0.505064; 0.486767; 0.572188; 0.463836; 0.58146; 0.501087; 0.538741; 0.499775; 0.517175; 0.564061; 0.519709; 0.489929; 0.554469; 0.480098; 0.569387; 0.467764; 0.603539; 0.413779; 0.632713; 0.435734; 0.568025; 0.480717; 0.511657; 0.503977; 0.512038; 0.550682; 0.477456; 0.627324; 0.371534; 0.615698; 0.415799; 0.644664; 0.398258; 0.615476; 0.417888; 0.617898; 0.461407; 0.58562; 0.485305; 0.566408; 0.493808; 0.544974; 0.498308; 0.541478; 0.480608; 0.553936; 0.480089; 0.591251; 0.500166; 0.541058; 0.482535; 0.559485; 0.504942; 0.589646; 0.437492; 0.617755; 0.424136; 0.601704; 0.440138; 0.586653; 0.515312; 0.515899; 0.600116; 0.413225; 0.596926; 0.496587; 0.575525; 0.458875; 0.586263; 0.455971; 0.545752; 0.466472; 0.564436; 0.514864; 0.542797; 0.51671; 0.505897; 0.531536; 0.498701; 0.569382; 0.471447; 0.495218; 0.554109; 0.502583; 0.535293; 0.450821; 0.581517; 0.445648; 0.561575; 0.449228; 0.517292; 0.539339; 0.496273; 0.473286&#93;,&#41;
+  at index &#91;2&#93;
+</pre>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Visualize a green density plot of posterior distribution in closed-form.</span>
+<span class="n">plot!</span><span class="x">(</span><span class="n">p</span><span class="x">,</span> <span class="n">range</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">1</span><span class="x">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">100</span><span class="x">),</span> <span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Ref</span><span class="x">(</span><span class="n">updated_belief</span><span class="x">),</span> <span class="n">range</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">1</span><span class="x">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">100</span><span class="x">)),</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s">"probability of heads"</span><span class="x">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s">""</span><span class="x">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">""</span><span class="x">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="x">(</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s">"Closed-form"</span><span class="x">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="mi">0</span><span class="x">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="x">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="x">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">:</span><span class="n">lightgreen</span><span class="x">)</span>
+</code></pre></div></div>
+
+<pre class="julia-error">
+ERROR: UndefVarError: p not defined
+</pre>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Visualize the true probability of heads in red.</span>
+<span class="n">vline!</span><span class="x">(</span><span class="n">p</span><span class="x">,</span> <span class="x">[</span><span class="n">p_true</span><span class="x">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s">"True probability"</span><span class="x">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">:</span><span class="n">red</span><span class="x">);</span>
+</code></pre></div></div>
+
+<pre class="julia-error">
+ERROR: UndefVarError: p not defined
+</pre>
+
+<p><img src="https://user-images.githubusercontent.com/7974003/44995682-25477880-af9c-11e8-850b-36e4b6d756ea.png" alt="sdf" /></p>
+
+<p>As we can see, the Turing model closely approximates the true probability. Hopefully this tutorial has provided an easy-to-follow, yet informative introduction to Turing’s simpler applications. More advanced usage will be demonstrated in later tutorials.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/Turing.jl/tutorials/" class="pagination--pager" title="Tutorials
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Turing.jl. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/Turing.jl/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

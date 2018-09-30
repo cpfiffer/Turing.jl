@@ -9,36 +9,34 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get Started - Turing.jl</title>
-<meta name="description" content="How to quickly install and setup Minimal Mistakes for use with GitHub Pages.">
+<!-- begin _includes/seo.html --><title>Getting Started - Turing.jl</title>
+<meta name="description" content="">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Turing.jl">
-<meta property="og:title" content="Get Started">
-<meta property="og:url" content="http://localhost:4000/docs/get-started">
+<meta property="og:title" content="Getting Started">
+<meta property="og:url" content="http://localhost:4000/Turing.jl/docs/get-started/">
 
 
-  <meta property="og:description" content="How to quickly install and setup Minimal Mistakes for use with GitHub Pages.">
-
-
-
+  <meta property="og:description" content="">
 
 
 
 
-  <meta property="article:published_time" content="2018-09-29T21:21:56-04:00">
 
 
 
-  <meta property="article:modified_time" content="2018-07-19T11:31:38-04:00">
+  <meta property="article:published_time" content="2018-09-30T15:51:30-04:00">
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/docs/get-started">
+
+
+<link rel="canonical" href="http://localhost:4000/Turing.jl/docs/get-started/">
 
 
 
@@ -55,7 +53,9 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Turing.jl Feed">
+
+
+<link href="/Turing.jl/feed.xml" type="application/atom+xml" rel="alternate" title="Turing.jl Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,8 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/Documenter.css">
+<link rel="stylesheet" href="/Turing.jl/assets/css/main.css">
+<link rel="stylesheet" href="/Turing.jl/assets/Documenter.css">
 
 <!--[if lte IE 9]>
   <style>
@@ -103,13 +103,13 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="/"><img src="/assets/turing-logo.svg" width=50>Turing.jl </a>
+        <a class="site-title" href="/Turing.jl/"><img src="/Turing.jl/assets/turing-logo.svg" width=50>Turing.jl </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/docs/" >Documenation</a>
+              <a href="/Turing.jl/" >Home</a>
             </li><li class="masthead__menu-item">
-              <a href="/about/" >About</a>
+              <a href="/Turing.jl/docs/" >Documenation</a>
             </li><li class="masthead__menu-item">
-              <a href="/news/" >News</a>
+              <a href="/Turing.jl/tutorials/" >Tutorials</a>
             </li><li class="masthead__menu-item">
               <a href="https://github.com/TuringLang/Turing.jl" >GitHub</a>
             </li></ul>
@@ -163,7 +163,7 @@
             
             
 
-            <li><a href="/docs/get-started/" class="">Getting Started</a></li>
+            <li><a href="/Turing.jl/docs/get-started/" class="active">Getting Started</a></li>
           
             
             
@@ -171,7 +171,7 @@
             
             
 
-            <li><a href="/docs/installation/" class="">Installation</a></li>
+            <li><a href="/Turing.jl/docs/quick-start/" class="">Probablistic Programming in Thirty Seconds</a></li>
           
             
             
@@ -179,7 +179,15 @@
             
             
 
-            <li><a href="/docs/upgrading/" class="">Upgrading</a></li>
+            <li><a href="/Turing.jl/docs/guide/" class="">Guide</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/Turing.jl/docs/advanced/" class="">Advanced Useage</a></li>
           
         </ul>
         
@@ -199,7 +207,35 @@
             
             
 
-            <li><a href="/docs/library/" class="">Public</a></li>
+            <li><a href="/Turing.jl/docs/library/" class="">Public</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/Turing.jl/docs/contributing/" class="">How to Contribute</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/Turing.jl/docs/style-guide/" class="">Style Guide</a></li>
           
         </ul>
         
@@ -213,15 +249,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get Started">
-    <meta itemprop="description" content="How to quickly install and setup Minimal Mistakes for use with GitHub Pages.">
+    <meta itemprop="headline" content="Getting Started">
+    <meta itemprop="description" content="">
     
-    <meta itemprop="dateModified" content="July 19, 2018">
+    
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Get Started
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting Started
 </h1>
           
         </header>
@@ -229,31 +265,17 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> </h4></header>
-              <ul class="toc__menu">
-  <li><a href="#installation">Installation</a>
-    <ul>
-      <li><a href="#install-julia">Install Julia</a></li>
-      <li><a href="#install-turingjl">Install Turing.jl</a></li>
-    </ul>
-  </li>
-</ul>
-            </nav>
-          </aside>
-        
         <p><a id="Installation-1"></a></p>
 
 <h2 id="installation">Installation</h2>
 
-<p>To use Turing, you need install Julia first and then install Turing.</p>
+<p>To use Turing, you need to install Julia first and then install Turing.</p>
 
 <p><a id="Install-Julia-1"></a></p>
 
 <h3 id="install-julia">Install Julia</h3>
 
-<p>You will need to install Julia 1.0, which you can get from <a href="http://julialang.org/downloads/">the official Julia website</a>.</p>
+<p>You will need to install Julia 1.0 or greater, which you can get from <a href="http://julialang.org/downloads/">the official Julia website</a>.</p>
 
 <p><a id="Install-Turing.jl-1"></a></p>
 
@@ -272,6 +294,7 @@
 
 <p>If all tests pass, you’re ready to start using Turing.</p>
 
+
         
       </section>
 
@@ -281,8 +304,6 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-07-19">July 19, 2018</time></p>
-        
       </footer>
 
       
@@ -290,11 +311,11 @@
       
   <nav class="pagination">
     
-      <a href="/docs/library/" class="pagination--pager" title="Public API
+      <a href="/Turing.jl/docs/style-guide/" class="pagination--pager" title="Style Guide
 ">Previous</a>
     
     
-      <a href="/docs/" class="pagination--pager" title="Documenation
+      <a href="/Turing.jl/docs/guide/" class="pagination--pager" title="Guide
 ">Next</a>
     
   </nav>
@@ -321,8 +342,6 @@
     
 
     
-
-    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -332,7 +351,7 @@
     </div>
 
     
-  <script src="/assets/js/main.min.js"></script>
+  <script src="/Turing.jl/assets/js/main.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 

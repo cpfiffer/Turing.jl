@@ -1,11 +1,9 @@
 ---
 title: Documentation
+permalink: /docs/
+toc: true
+toc_sticky: true
 ---
-
-<a id='Documentation-1'></a>
-
-# Documentation
-
 
 **Turing** is a *universal* probabilistic programming language with an intuitive modelling interface, composable probabilistic inference and computational scalability.
 
