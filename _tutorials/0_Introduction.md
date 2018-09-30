@@ -1,6 +1,6 @@
 ---
 title: Introduction to Turing
-permalink: /tutorials/introduction/
+permalink: /:collection/:name/
 ---
 
 
