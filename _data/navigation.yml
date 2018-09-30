@@ -1,0 +1,51 @@
+# example navigation
+foo:
+  - title: "Parent Link 1"
+    url: /parent-1-page-url/
+    children:
+      - title: "Child Link 1"
+        url: /child-1-page-url/
+      - title: "Child Link 2"
+        url: /child-2-page-url/
+
+  - title: "Parent Link 2"
+    url: /parent-2-page-url/
+    children:
+      - title: "Child Link 1"
+        url: /child-1-page-url/
+      - title: "Child Link 2"
+        url: /child-2-page-url/
+      - title: "Child Link 3"
+        url: /child-3-page-url/
+
+
+# main links links
+main:
+  - title: "Documenation"
+    url: /docs/
+
+  - title: "About"
+    url: /about/
+
+  - title: "News"
+    url: /news/
+
+  - title: "GitHub"
+    url: https://github.com/TuringLang/Turing.jl
+
+
+# documentation links
+docs:
+  - title: Using Turing
+    children:
+      - title: "Getting Started"
+        url: /docs/get-started/
+      - title: "Installation"
+        url: /docs/installation/
+      - title: "Upgrading"
+        url: /docs/upgrading/
+
+  - title: Library
+    children:
+      - title: "Public"
+        url: /docs/library/
